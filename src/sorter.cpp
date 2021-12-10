@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <iterator>
-// #include <iostream>
 
 #include "sorter.h"
 
@@ -39,8 +38,6 @@ bool Sorter::isRunning(void) const
 
 void Sorter::routine(SharedBuffer<Object> *buf, std::ostream *out)
 {
-    // std::cout << "Sorter has started" << std::endl;
-
     while (true) {
         buf->waitDataReady();
         if (!m_running) {
@@ -50,8 +47,6 @@ void Sorter::routine(SharedBuffer<Object> *buf, std::ostream *out)
         buf->dump(out);
         buf->notifyDataDone();
     }
-
-    // std::cout << "Sorter has stopped" << std::endl;
 }
 
 

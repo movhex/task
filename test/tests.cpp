@@ -1,3 +1,8 @@
+#include <cstdint>
+#include <cstddef>
+#include <string>
+#include <algorithm>
+#include <sstream>
 #include <gtest/gtest.h>
 
 #include "object.h"

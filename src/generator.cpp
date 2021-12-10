@@ -1,7 +1,6 @@
 #include <random>
 #include <string>
 #include <algorithm>
-// #include <iostream>
 
 #include "generator.h"
 
@@ -36,8 +35,6 @@ bool Generator::isRunning(void) const
 
 void Generator::routine(SharedBuffer<Object> *buf)
 {
-    // std::cout << "Generator has started" << std::endl;
-
     std::string colors = "rgb";
     std::random_device rd;
     std::default_random_engine eng(rd());
@@ -55,6 +52,4 @@ void Generator::routine(SharedBuffer<Object> *buf)
             break;
         }
     }
-
-    // std::cout << "Generator has stopped" << std::endl;
 }

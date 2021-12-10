@@ -1,6 +1,6 @@
+#include <cstdint>
+#include <cstddef>
 #include <string>
-#include <thread>
-#include <chrono>
 #include <iostream>
 
 #include "object.h"
@@ -37,8 +37,6 @@ int main(void)
     gen.run(&buf);
     sorter.run(&buf, &file);
 
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-
     std::string cmd;
 
     while (true) {
@@ -48,7 +46,6 @@ int main(void)
             if (!gen.isRunning()) {
                 gen.run(&buf);
                 sorter.run(&buf, &file);
-                std::this_thread::sleep_for(std::chrono::seconds(1));
             }
             else {
                 std::cout << "Threads are already running" << std::endl;
@@ -59,7 +56,6 @@ int main(void)
                 buf.reset();
                 gen.stop();
                 sorter.stop();
-                std::this_thread::sleep_for(std::chrono::seconds(1));
             }
             else {
                 std::cout << "Threads aren't running" << std::endl;
